@@ -1,7 +1,7 @@
 # The SQL query given below was entered into
 # http://skyserver.sdss3.org/dr10/en/tools/search/sql.aspx
 # and the results were saved as
-# sdss_specz_r17_r21_z0p05_z1p0.csv.
+# sdss_specz_r20_z0p01_z0p5.csv.
 
 SELECT TOP 100000
    s.z as redshift,
@@ -10,10 +10,9 @@ SELECT TOP 100000
 FROM PhotoObj AS p
    JOIN SpecObj AS s ON s.bestobjid = p.objid
 WHERE
-   s.z >= 0.05
-   AND s.z<1.0
+   s.z >= 0.01
+   AND s.z<0.5
    AND s.zWarning=0
-   AND p.r<21
-   AND p.r>14
+   AND p.r<20
    AND p.rerun=301
    AND type=3
